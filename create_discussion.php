@@ -32,8 +32,8 @@ $token = $oMain->issueToken($authenticator, $account_id);
 $client = $oMain->createClientInstance($token);
 
 	$postData = array(
-		'name' => $postData['client_name'],
-		'body' => $postData['versions'],
+		'name' => 'sdd',
+		'body' => 'ttt',
 	);
 
 
