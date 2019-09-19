@@ -11,7 +11,7 @@ $data = array(
 	'test2' => 'bbbb'
 );
 
-echo json_encode($data);
+echo json_encode($_POST);
  
 
 
