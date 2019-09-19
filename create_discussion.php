@@ -11,33 +11,33 @@ require_once('main.php');
 $_POST = file_get_contents('php://input');
 $postData = json_decode($_POST);
 
-//echo json_encode($postData);
+echo json_encode($postData['client_name']);
 
 
 
-$account_id = 176953;
-$project_id = 1878;
+// $account_id = 176953;
+// $project_id = 1878;
 
-$data = array(
-	'company' => 'Straightarrow Corporation',
-	'app_name' => 'SA-RNL ActiveCollab automation',
-	'email' => 'rmdingle@straightarrow.com.ph',
-	'password' => 'rinoayuna12',
-);
+// $data = array(
+// 	'company' => 'Straightarrow Corporation',
+// 	'app_name' => 'SA-RNL ActiveCollab automation',
+// 	'email' => 'rmdingle@straightarrow.com.ph',
+// 	'password' => 'rinoayuna12',
+// );
 
-$oMain = new Main();
+// $oMain = new Main();
 
-$authenticator = $oMain->intializeAuth($data);
-$token = $oMain->issueToken($authenticator, $account_id);
-$client = $oMain->createClientInstance($token);
+// $authenticator = $oMain->intializeAuth($data);
+// $token = $oMain->issueToken($authenticator, $account_id);
+// $client = $oMain->createClientInstance($token);
 
-	$postData = array(
-		'name' => 'sdd',
-		'body' => 'ttt',
-	);
+// 	$postData = array(
+// 		'name' => 'sdd',
+// 		'body' => 'ttt',
+// 	);
 
 
-$oMain->createProjectData($client, $project_id, 'discussions', $postData);
+// $oMain->createProjectData($client, $project_id, 'discussions', $postData);
 
 
 // if(isset($postData)){
