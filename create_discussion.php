@@ -11,7 +11,14 @@ $data = array(
 	'test2' => 'bbbb'
 );
 
-echo json_encode($_POST);
+echo $_POST;
+
+// $_POST = file_get_contents('php://input');
+
+// // Converts it into a PHP object
+// $data = json_decode($json);
+
+// echo json_encode($_POST);
  
 
 
