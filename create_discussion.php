@@ -11,50 +11,39 @@ require_once('main.php');
 $_POST = file_get_contents('php://input');
 $postData = json_decode($_POST);
 
-echo json_encode($postData->client_name);
+$account_id = 176953;
+$project_id = 1878;
+
+$data = array(
+	'company' => 'Straightarrow Corporation',
+	'app_name' => 'SA-RNL ActiveCollab automation',
+	'email' => 'rmdingle@straightarrow.com.ph',
+	'password' => 'rinoayuna12',
+);
+
+$oMain = new Main();
+
+$authenticator = $oMain->intializeAuth($data);
+$token = $oMain->issueToken($authenticator, $account_id);
+$client = $oMain->createClientInstance($token);
 
 
 
-// $account_id = 176953;
-// $project_id = 1878;
+if(isset($postData)){
 
-// $data = array(
-// 	'company' => 'Straightarrow Corporation',
-// 	'app_name' => 'SA-RNL ActiveCollab automation',
-// 	'email' => 'rmdingle@straightarrow.com.ph',
-// 	'password' => 'rinoayuna12',
-// );
+	$postData = array(
+		'name' => $postData->client_name,
+		'body' => $postData->versions,
+	);
 
-// $oMain = new Main();
+	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $postData);
 
-// $authenticator = $oMain->intializeAuth($data);
-// $token = $oMain->issueToken($authenticator, $account_id);
-// $client = $oMain->createClientInstance($token);
-
-// 	$postData = array(
-// 		'name' => 'sdd',
-// 		'body' => 'ttt',
-// 	);
+	if($bResponse){
+		$response = 'all good';
+	}else{
+		$response = 'all failed';
+	}
+}
 
 
-// $oMain->createProjectData($client, $project_id, 'discussions', $postData);
-
-
-// if(isset($postData)){
-
-// 	$postData = array(
-// 		'name' => $postData['client_name'],
-// 		'body' => $postData['versions'],
-// 	);
-
-// 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $postData);
-
-// 	if($bResponse){
-// 		$response = 'all good';
-// 	}else{
-// 		$response = 'all failed';
-// 	}
-// }
-
-
-//echo json_encode($response);
+echo json_encode($response);
