@@ -6,51 +6,49 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-$data = array(
-	'test1' => 'aaaa',
-	'test2' => 'bbbb'
-);
+
 
 $_POST = file_get_contents('php://input');
-$data = json_decode($_POST);
-
-echo json_encode($data);
-
-// $_POST = file_get_contents('php://input');
-
-// // Converts it into a PHP object
-// $data = json_decode($json);
-
-// echo json_encode($_POST);
- 
-
-
-//require_once('main.php');
-
-//echo "test";
-// $_POST = json_decode(file_get_contents('php://input'), true);
-
-// return echo $_POST;
+$postData = json_decode($_POST);
 
 
 
-// $account_id = 176953;
-// $project_id = 1878;
 
-// $data = array(
-// 	'company' => 'Straightarrow Corporation',
-// 	'app_name' => 'SA-RNL ActiveCollab automation',
-// 	'email' => 'rmdingle@straightarrow.com.ph',
-// 	'password' => 'rinoayuna12',
-// );
-
-// $oMain = new Main();
-
-// $authenticator = $oMain->intializeAuth($data);
-// $token = $oMain->issueToken($authenticator, $account_id);
-// $client = $oMain->createClientInstance($token);
+require_once('main.php');
 
 
-// if(isset($_POST)){
-// 	$oMain->createProjectData($client, $project_id, 'discussions', $_POST);
-// }
+$account_id = 176953;
+$project_id = 1878;
+
+$data = array(
+	'company' => 'Straightarrow Corporation',
+	'app_name' => 'SA-RNL ActiveCollab automation',
+	'email' => 'rmdingle@straightarrow.com.ph',
+	'password' => 'rinoayuna12',
+);
+
+$oMain = new Main();
+
+$authenticator = $oMain->intializeAuth($data);
+$token = $oMain->issueToken($authenticator, $account_id);
+$client = $oMain->createClientInstance($token);
+
+
+if(isset($postData)){
+
+	$postData = array(
+		'name' => $postData['client_name'],
+		'body' => $postData['versions'],
+	);
+
+	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $postData);
+
+	if($bResponse){
+		$response = 'all good';
+	}else{
+		$response = 'all failed';
+	}
+}
+
+
+echo json_encode($response);
