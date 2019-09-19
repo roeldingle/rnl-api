@@ -1,9 +1,10 @@
 <?php
 require_once('main.php');
 
-echo "test";
+//echo "test";
 
-return $_POST;
+
+return echo json_encode($_POST);
 
 
 
