@@ -31,6 +31,12 @@ $authenticator = $oMain->intializeAuth($data);
 $token = $oMain->issueToken($authenticator, $account_id);
 $client = $oMain->createClientInstance($token);
 
+	$postData = array(
+		'name' => $postData['client_name'],
+		'body' => $postData['versions'],
+	);
+
+
 $oMain->createProjectData($client, $project_id, 'discussions', $postData);
 
 
