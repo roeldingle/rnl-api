@@ -11,7 +11,10 @@ $data = array(
 	'test2' => 'bbbb'
 );
 
-echo $_POST;
+$_POST = file_get_contents('php://input');
+$data = json_decode($_POST);
+
+echo json_encode($data);
 
 // $_POST = file_get_contents('php://input');
 
