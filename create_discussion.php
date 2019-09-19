@@ -5,15 +5,23 @@
 // header("Access-Control-Allow-Methods: POST");
 // header("Access-Control-Max-Age: 3600");
 // header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+$data = array(
+	'test1' => 'aaaa',
+	'test2' => 'bbbb'
+
+);
+
+echo json_encode($data);
  
 
 
-require_once('main.php');
+//require_once('main.php');
 
 //echo "test";
-$_POST = json_decode(file_get_contents('php://input'), true);
+// $_POST = json_decode(file_get_contents('php://input'), true);
 
-return echo $_POST;
+// return echo $_POST;
 
 
 
