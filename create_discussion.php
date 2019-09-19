@@ -7,13 +7,13 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
 
- 
+
 require_once('main.php');
 
 //echo "test";
+$_POST = json_decode(file_get_contents('php://input'), true);
 
-
-return echo json_encode($_POST);
+return echo $_POST;
 
 
 
