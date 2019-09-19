@@ -11,7 +11,7 @@ require_once('main.php');
 $_POST = file_get_contents('php://input');
 $postData = json_decode($_POST);
 
-echo json_encode($postData['client_name']);
+echo json_encode($postData->client_name);
 
 
 
