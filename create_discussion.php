@@ -31,22 +31,24 @@ $authenticator = $oMain->intializeAuth($data);
 $token = $oMain->issueToken($authenticator, $account_id);
 $client = $oMain->createClientInstance($token);
 
-
-if(isset($postData)){
-
-	$postData = array(
-		'name' => $postData['client_name'],
-		'body' => $postData['versions'],
-	);
-
-	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $postData);
-
-	if($bResponse){
-		$response = 'all good';
-	}else{
-		$response = 'all failed';
-	}
-}
+$oMain->createProjectData($client, $project_id, 'discussions', $postData);
 
 
-echo json_encode($response);
+// if(isset($postData)){
+
+// 	$postData = array(
+// 		'name' => $postData['client_name'],
+// 		'body' => $postData['versions'],
+// 	);
+
+// 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $postData);
+
+// 	if($bResponse){
+// 		$response = 'all good';
+// 	}else{
+// 		$response = 'all failed';
+// 	}
+// }
+
+
+//echo json_encode($response);
