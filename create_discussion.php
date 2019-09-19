@@ -1,6 +1,8 @@
 <?php
 require_once('main.php');
 
+echo "test";
+
 return $_POST;
 
 
