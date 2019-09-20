@@ -32,11 +32,11 @@ $client = $oMain->createClientInstance($token);
 if(isset($postData)){
 
    $formatedName = formatName($postData);
-   $formatedBody = formatBody($postData);
+   //$formatedBody = formatBody($postData);
 
 	$payload = array(
 		'name' => $formatedName,
-		'body' => $formatedBody,
+		'body' => $data->task_type,
 	);
 
 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
