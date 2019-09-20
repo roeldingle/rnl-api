@@ -31,12 +31,13 @@ $client = $oMain->createClientInstance($token);
 
 if(isset($postData)){
 
-   $formatedName = formatName($postData);
+   $date_data = explode("/", $postData->date_due);
+   $formatedName =  $data->client_name . ' (' . $data->bu. ')' . ' - ' . $date_data[0] . '/' .$date_data[1];
    //$formatedBody = formatBody($postData);
 
 	$payload = array(
 		'name' => $formatedName,
-		'body' => $data->task_type,
+		'body' => $postData->task_type,
 	);
 
 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
@@ -49,35 +50,34 @@ if(isset($postData)){
 }
 
 
-function formatName($data){
+// function formatName($data){
    
-   $html = '';
+//    $html = '';
 
-   // switch($data->task_type){
-   // 	case "Combine":
-   // 	$type = "CM";
-   // 	break;
+//    // switch($data->task_type){
+//    // 	case "Combine":
+//    // 	$type = "CM";
+//    // 	break;
 
-   // 	case "Load":
-   // 	$type = "LO";
-   // 	break;
+//    // 	case "Load":
+//    // 	$type = "LO";
+//    // 	break;
 
-   // 	case "Code":
-   // 	$type = "CO";
-   // 	break;
+//    // 	case "Code":
+//    // 	$type = "CO";
+//    // 	break;
 
-   // 	case "E-card":
-   // 	$type = "EC";
-   // 	break;
-   // }
+//    // 	case "E-card":
+//    // 	$type = "EC";
+//    // 	break;
+//    // }
 
-   $date_data = explode("/", $postData->date_due);
+//    $date_data = explode("/", $postData->date_due);
+//    $html .=  $data->client_name . ' (' . $data->bu. ')' . ' - ' . $date_data[0] . '/' .$date_data[1];
 
-   $html .=  $data->client_name . ' (' . $data->bu. ')' . ' - ' . $date_data[0] . '/' .$date_data[1];
+//    return $html;
 
-   return $html;
-
-}
+// }
 
 
 function formatBody($data){
