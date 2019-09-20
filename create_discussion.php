@@ -37,7 +37,7 @@ if(isset($postData)){
 
 	$payload = array(
 		'name' => $formatedName,
-		'body' => $postData->task_type,
+		'body' => $postData->versions,
 	);
 
 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
