@@ -46,4 +46,4 @@ if(isset($postData)){
 }
 
 
-echo json_encode($bResponse);
+echo json_encode($postData);
