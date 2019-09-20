@@ -32,50 +32,50 @@ $client = $oMain->createClientInstance($token);
 if(isset($postData)){
 
 
-   switch($postData->task_type){
-   	case "Combine":
-   	$type = "CM";
-   	break;
+   // switch($postData->task_type){
+   // 	case "Combine":
+   // 	$type = "CM";
+   // 	break;
 
-   	case "Load":
-   	$type = "LO";
-   	break;
+   // 	case "Load":
+   // 	$type = "LO";
+   // 	break;
 
-   	case "Code":
-   	$type = "CO";
-   	break;
+   // 	case "Code":
+   // 	$type = "CO";
+   // 	break;
 
-   	case "E-card":
-   	$type = "EC";
-   	break;
-   }
+   // 	case "E-card":
+   // 	$type = "EC";
+   // 	break;
+   // }
 
-   $formatedName = $type . '-' . $postData->client_name . '(' . $postData->bu. ')' . '-' .$postData->date_due;
+   // $formatedName = $type . '-' . $postData->client_name . '(' . $postData->bu . ')' . '-' .$postData->date_due;
 
-   $formatedBody = '';
-   $formatedBody .= '<strong>Client name: </strong>&nbsp;' . $postData->client_name;
-   $formatedBody .= '<br />'.;
-   $formatedBody .= '<strong>Date Requested/Filed: </strong>&nbsp;' . $postData->date_req;
-   $formatedBody .= '<br />'.;
-   $formatedBody .= '<strong>Business/Task type: </strong>&nbsp;' . $postData->bu;
-   $formatedBody .= '<br />'.;
-   $formatedBody .= '<strong>Task Description: </strong>&nbsp;' . $postData->task_type;
-   $formatedBody .= '<br />'.;
-   $formatedBody .= '<strong>Versions: </strong><br />' . $postData->versions;
-   $formatedBody .= '<br />'.;
-   $formatedBody .= '<strong>File location: </strong><br />' . $postData->file_loc;
-   $formatedBody .= '<br />'.;
-   $formatedBody .= '<strong>Initial Due date: </strong>&nbsp;' . $postData->date_due;
-   $formatedBody .= '<br />'.;
-   $formatedBody .= '<strong>Special Notes/Instructions: </strong>&nbsp;' . $postData->req_notes;
-   $formatedBody .= '<br />'.;
-   $formatedBody .= '<strong>RNL Staff: </strong>&nbsp;' . $postData->rnl_staff;
-   $formatedBody .= '<br />'.;
+   // $formatedBody = '';
+   // $formatedBody .= '<strong>Client name: </strong>&nbsp;' . $postData->client_name;
+   // $formatedBody .= '<br />'.;
+   // $formatedBody .= '<strong>Date Requested/Filed: </strong>&nbsp;' . $postData->date_req;
+   // $formatedBody .= '<br />'.;
+   // $formatedBody .= '<strong>Business/Task type: </strong>&nbsp;' . $postData->bu;
+   // $formatedBody .= '<br />'.;
+   // $formatedBody .= '<strong>Task Description: </strong>&nbsp;' . $postData->task_type;
+   // $formatedBody .= '<br />'.;
+   // $formatedBody .= '<strong>Versions: </strong><br />' . $postData->versions;
+   // $formatedBody .= '<br />'.;
+   // $formatedBody .= '<strong>File location: </strong><br />' . $postData->file_loc;
+   // $formatedBody .= '<br />'.;
+   // $formatedBody .= '<strong>Initial Due date: </strong>&nbsp;' . $postData->date_due;
+   // $formatedBody .= '<br />'.;
+   // $formatedBody .= '<strong>Special Notes/Instructions: </strong>&nbsp;' . $postData->req_notes;
+   // $formatedBody .= '<br />'.;
+   // $formatedBody .= '<strong>RNL Staff: </strong>&nbsp;' . $postData->rnl_staff;
+   // $formatedBody .= '<br />'.;
 
 
 	$payload = array(
-		'name' => $formatedName,
-		'body' => $formatedBody,
+		'name' => $postData->client_name . '(' . $postData->bu . ')' . '-' .$postData->date_due,
+		'body' => '<strong>Versions: </strong><br />' . $postData->versions,
 	);
 
 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
