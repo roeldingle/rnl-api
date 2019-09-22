@@ -27,27 +27,29 @@ $authenticator = $oMain->intializeAuth($data);
 $token = $oMain->issueToken($authenticator, $account_id);
 $client = $oMain->createClientInstance($token);
 
+echo json_encode($postData);
 
 
-if(isset($postData)){
 
-   $date_data = explode("/", $postData->date_due);
-   $formatedName =  $data->client_name . ' (' . $data->bu. ')' . ' - ' . $date_data[0] . '/' .$date_data[1];
-   //$formatedBody = formatBody($postData);
+// if(isset($postData)){
 
-	$payload = array(
-		'name' => $formatedName,
-		'body' => $postData->versions,
-	);
+//    $date_data = explode("/", $postData->date_due);
+//    $formatedName =  $data->client_name . ' (' . $data->bu. ')' . ' - ' . $date_data[0] . '/' .$date_data[1];
+//    //$formatedBody = formatBody($postData);
 
-	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
+// 	$payload = array(
+// 		'name' => $formatedName,
+// 		'body' => $postData->versions,
+// 	);
 
-	if($bResponse){
-		$response = 'all good';
-	}else{
-		$response = 'all failed';
-	}
-}
+// 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
+
+// 	if($bResponse){
+// 		$response = 'all good';
+// 	}else{
+// 		$response = 'all failed';
+// 	}
+// }
 
 
 // function formatName($data){
@@ -80,33 +82,33 @@ if(isset($postData)){
 // }
 
 
-function formatBody($data){
+// function formatBody($data){
    
-   $html = '';
-   $html .= '<strong>Client name: </strong>&nbsp;' . $data->client_name;
-   $html .= '<br />'.;
-   $html .= '<strong>Date Requested/Filed: </strong>&nbsp;' . $data->date_req;
-   $html .= '<br />'.;
-   $html .= '<strong>Business/Task type: </strong>&nbsp;' . $data->bu;
-   $html .= '<br />'.;
-   $html .= '<strong>Task Description: </strong>&nbsp;' . $data->task_type;
-   $html .= '<br />'.;
-   $html .= '<strong>Versions: </strong><br />' . $data->versions;
-   $html .= '<br />'.;
-   $html .= '<strong>File location: </strong><br />' . $data->file_loc;
-   $html .= '<br />'.;
-   $html .= '<strong>Initial Due date: </strong>&nbsp;' . $data->date_due;
-   $html .= '<br />'.;
-   $html .= '<strong>Special Notes/Instructions: </strong>&nbsp;' . $data->req_notes;
-   $html .= '<br />'.;
-   $html .= '<strong>RNL Staff: </strong>&nbsp;' . $data->rnl_staff;
-   $html .= '<br />'.;
+//    $html = '';
+//    $html .= '<strong>Client name: </strong>&nbsp;' . $data->client_name;
+//    $html .= '<br />'.;
+//    $html .= '<strong>Date Requested/Filed: </strong>&nbsp;' . $data->date_req;
+//    $html .= '<br />'.;
+//    $html .= '<strong>Business/Task type: </strong>&nbsp;' . $data->bu;
+//    $html .= '<br />'.;
+//    $html .= '<strong>Task Description: </strong>&nbsp;' . $data->task_type;
+//    $html .= '<br />'.;
+//    $html .= '<strong>Versions: </strong><br />' . $data->versions;
+//    $html .= '<br />'.;
+//    $html .= '<strong>File location: </strong><br />' . $data->file_loc;
+//    $html .= '<br />'.;
+//    $html .= '<strong>Initial Due date: </strong>&nbsp;' . $data->date_due;
+//    $html .= '<br />'.;
+//    $html .= '<strong>Special Notes/Instructions: </strong>&nbsp;' . $data->req_notes;
+//    $html .= '<br />'.;
+//    $html .= '<strong>RNL Staff: </strong>&nbsp;' . $data->rnl_staff;
+//    $html .= '<br />'.;
 
-   return $html;
-}
+//    return $html;
+// }
 
 
-echo json_encode($response);
+//echo json_encode($response);
 
 /*
 http://straightarrow-tech.com:2082/	straigy4	P@ssw0rd12345
