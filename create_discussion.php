@@ -31,25 +31,45 @@ echo json_encode($postData);
 
 
 
-// if(isset($postData)){
+if(isset($postData)){
+   
+   $html = '';
 
-//    $date_data = explode("/", $postData->date_due);
-//    $formatedName =  $data->client_name . ' (' . $data->bu. ')' . ' - ' . $date_data[0] . '/' .$date_data[1];
-//    //$formatedBody = formatBody($postData);
+   switch($postData->task_type){
+   	case "Combine":
+   	$type = "CM";
+   	break;
 
-// 	$payload = array(
-// 		'name' => $formatedName,
-// 		'body' => $postData->versions,
-// 	);
+   	case "Load":
+   	$type = "LO";
+   	break;
 
-// 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
+   	case "Code":
+   	$type = "CO";
+   	break;
 
-// 	if($bResponse){
-// 		$response = 'all good';
-// 	}else{
-// 		$response = 'all failed';
-// 	}
-// }
+   	case "E-card":
+   	$type = "EC";
+   	break;
+   }
+
+   $date_data = explode("/", $postData->date_due);
+   $formatedName =  $type . '-' . $data->client_name . ' (' . $data->bu. ')' . ' - ' . $date_data[0] . '/' .$date_data[1];
+   //$formatedBody = formatBody($postData);
+
+	$payload = array(
+		'name' => $formatedName,
+		'body' => $postData->versions,
+	);
+
+	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
+
+	if($bResponse){
+		$response = 'all good';
+	}else{
+		$response = 'all failed';
+	}
+}
 
 
 // function formatName($data){
@@ -111,5 +131,6 @@ echo json_encode($postData);
 //echo json_encode($response);
 
 /*
-http://straightarrow-tech.com:2082/	straigy4	P@ssw0rd12345
+straightarrow-tech.com:2082	straigy4	P@ssw0rd12345
+git pull https://github.com/roeldingle/rnl-api.git master
 */
