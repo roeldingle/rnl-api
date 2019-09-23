@@ -33,37 +33,13 @@ $client = $oMain->createClientInstance($token);
 
 if(isset($postData)){
    
-   // $html = '';
-   // $type = "";
-
-   // switch($postData->task_type){
-   // 	case "Combine":
-   // 	$type = "CM";
-   // 	break;
-
-   // 	case "Load":
-   // 	$type = "LO";
-   // 	break;
-
-   // 	case "Code":
-   // 	$type = "CO";
-   // 	break;
-
-   // 	case "E-card":
-   // 	$type = "EC";
-   // 	break;
-
-   // 	default:
-   // 	$type = "";
-   // }
-
-   //$date_data = explode("/", $postData->date_due);
+   
    $formatedName =  formatName($postData);
-   //$formatedBody = formatBody($postData);
+   $formatedBody = formatBody($postData);
 
 	$payload = array(
 		'name' => $formatedName,
-		'body' => $postData->versions,
+		'body' => $formatedBody,
 	);
 
 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
@@ -109,30 +85,30 @@ function formatName($data){
 }
 
 
-// function formatBody($data){
+function formatBody($data){
    
-//    $html = '';
-//    $html .= '<strong>Client name: </strong>&nbsp;' . $data->client_name;
-//    $html .= '<br />'.;
-//    $html .= '<strong>Date Requested/Filed: </strong>&nbsp;' . $data->date_req;
-//    $html .= '<br />'.;
-//    $html .= '<strong>Business/Task type: </strong>&nbsp;' . $data->bu;
-//    $html .= '<br />'.;
-//    $html .= '<strong>Task Description: </strong>&nbsp;' . $data->task_type;
-//    $html .= '<br />'.;
-//    $html .= '<strong>Versions: </strong><br />' . $data->versions;
-//    $html .= '<br />'.;
-//    $html .= '<strong>File location: </strong><br />' . $data->file_loc;
-//    $html .= '<br />'.;
-//    $html .= '<strong>Initial Due date: </strong>&nbsp;' . $data->date_due;
-//    $html .= '<br />'.;
-//    $html .= '<strong>Special Notes/Instructions: </strong>&nbsp;' . $data->req_notes;
-//    $html .= '<br />'.;
-//    $html .= '<strong>RNL Staff: </strong>&nbsp;' . $data->rnl_staff;
-//    $html .= '<br />'.;
+   $html = '';
+   $html .= '<strong>Client name: </strong>&nbsp;' . $data->client_name;
+   $html .= '<br />'.;
+   $html .= '<strong>Date Requested/Filed: </strong>&nbsp;' . $data->date_req;
+   $html .= '<br />'.;
+   $html .= '<strong>Business/Task type: </strong>&nbsp;' . $data->bu;
+   $html .= '<br />'.;
+   $html .= '<strong>Task Description: </strong>&nbsp;' . $data->task_type;
+   $html .= '<br />'.;
+   $html .= '<strong>Versions: </strong><br />' . $data->versions;
+   $html .= '<br />'.;
+   $html .= '<strong>File location: </strong><br />' . $data->file_loc;
+   $html .= '<br />'.;
+   $html .= '<strong>Initial Due date: </strong>&nbsp;' . $data->date_due;
+   $html .= '<br />'.;
+   $html .= '<strong>Special Notes/Instructions: </strong>&nbsp;' . $data->req_notes;
+   $html .= '<br />'.;
+   $html .= '<strong>RNL Staff: </strong>&nbsp;' . $data->rnl_staff;
+   $html .= '<br />'.;
 
-//    return $html;
-// }
+   return $html;
+}
 
 
 //echo json_encode($response);
