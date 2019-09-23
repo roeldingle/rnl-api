@@ -33,10 +33,54 @@ $client = $oMain->createClientInstance($token);
 
 if(isset($postData)){
    
-   $html = '';
-   $type = "";
+   // $html = '';
+   // $type = "";
 
-   switch($postData->task_type){
+   // switch($postData->task_type){
+   // 	case "Combine":
+   // 	$type = "CM";
+   // 	break;
+
+   // 	case "Load":
+   // 	$type = "LO";
+   // 	break;
+
+   // 	case "Code":
+   // 	$type = "CO";
+   // 	break;
+
+   // 	case "E-card":
+   // 	$type = "EC";
+   // 	break;
+
+   // 	default:
+   // 	$type = "";
+   // }
+
+   //$date_data = explode("/", $postData->date_due);
+   $formatedName =  formatName($postData);
+   //$formatedBody = formatBody($postData);
+
+	$payload = array(
+		'name' => $formatedName,
+		'body' => $postData->versions,
+	);
+
+	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
+
+	if($bResponse){
+		$response = 'all good';
+	}else{
+		$response = 'all failed';
+	}
+}
+
+
+
+
+function formatName($data){
+   
+   switch($data->task_type){
    	case "Combine":
    	$type = "CM";
    	break;
@@ -57,55 +101,12 @@ if(isset($postData)){
    	$type = "";
    }
 
-   //$date_data = explode("/", $postData->date_due);
-   $formatedName =  $type . '-' . $data->client_name . ' (' . $data->bu. ')' . ' - ' . $postData->date_due;
-   //$formatedBody = formatBody($postData);
+  // $date_data = explode("/", $data->date_due);
+   $html =  $type . '-' . $data->client_name . ' (' . $data->bu. ')' . ' - ' . $data->date_due;
 
-	$payload = array(
-		'name' => $formatedName,
-		'body' => $postData->versions,
-	);
+   return $html;
 
-	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
-
-	if($bResponse){
-		$response = 'all good';
-	}else{
-		$response = 'all failed';
-	}
 }
-
-echo json_encode($postData);
-
-
-// function formatName($data){
-   
-//    $html = '';
-
-//    // switch($data->task_type){
-//    // 	case "Combine":
-//    // 	$type = "CM";
-//    // 	break;
-
-//    // 	case "Load":
-//    // 	$type = "LO";
-//    // 	break;
-
-//    // 	case "Code":
-//    // 	$type = "CO";
-//    // 	break;
-
-//    // 	case "E-card":
-//    // 	$type = "EC";
-//    // 	break;
-//    // }
-
-//    $date_data = explode("/", $postData->date_due);
-//    $html .=  $data->client_name . ' (' . $data->bu. ')' . ' - ' . $date_data[0] . '/' .$date_data[1];
-
-//    return $html;
-
-// }
 
 
 // function formatBody($data){
@@ -135,6 +136,8 @@ echo json_encode($postData);
 
 
 //echo json_encode($response);
+
+echo json_encode($postData);
 
 /*
 straightarrow-tech.com:2082	straigy4	P@ssw0rd12345
