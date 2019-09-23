@@ -103,7 +103,7 @@ function formatBody($data){
    $html .= '<br /><br />';
    $html .= '<strong>Versions: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->versions);
    $html .= '<br /><br />';
-   $html .= '<strong>File location: </strong><br />' . $data->file_loc;
+   $html .= '<strong>File location: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->file_loc);
    $html .= '<br /><br />';
    $html .= '<strong>Initial Due date: </strong>&nbsp;' . $data->date_due;
    $html .= '<br /><br />';
