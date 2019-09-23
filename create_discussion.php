@@ -27,13 +27,14 @@ $authenticator = $oMain->intializeAuth($data);
 $token = $oMain->issueToken($authenticator, $account_id);
 $client = $oMain->createClientInstance($token);
 
-echo json_encode($postData);
+
 
 
 
 if(isset($postData)){
    
    $html = '';
+   $type = "";
 
    switch($postData->task_type){
    	case "Combine":
@@ -51,10 +52,13 @@ if(isset($postData)){
    	case "E-card":
    	$type = "EC";
    	break;
+
+   	default:
+   	$type = "";
    }
 
-   $date_data = explode("/", $postData->date_due);
-   $formatedName =  $type . '-' . $data->client_name . ' (' . $data->bu. ')' . ' - ' . $date_data[0] . '/' .$date_data[1];
+   //$date_data = explode("/", $postData->date_due);
+   $formatedName =  $type . '-' . $data->client_name . ' (' . $data->bu. ')' . ' - ' . $postData->date_due;
    //$formatedBody = formatBody($postData);
 
 	$payload = array(
@@ -70,6 +74,8 @@ if(isset($postData)){
 		$response = 'all failed';
 	}
 }
+
+echo json_encode($postData);
 
 
 // function formatName($data){
