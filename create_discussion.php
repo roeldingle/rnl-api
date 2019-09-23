@@ -35,7 +35,7 @@ if(isset($postData)){
    $formatedBody = formatBody($postData);
 
 	$payload = array(
-		'name' => $formatedName,
+		'name' => '[TEST] ' . $formatedName,
 		'body' => $formatedBody,
 	);
 
@@ -111,6 +111,8 @@ function formatBody($data){
    $html .= '<br /><br />';
    $html .= '<strong>RNL Staff: </strong>&nbsp;' . $data->rnl_staff;
    $html .= '<br /><br />';
+
+   $html .= 'This discussion was created by  @Angeline Rivera Guenther,';
 
    return $html;
 }
