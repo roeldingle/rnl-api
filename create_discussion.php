@@ -28,9 +28,6 @@ $token = $oMain->issueToken($authenticator, $account_id);
 $client = $oMain->createClientInstance($token);
 
 
-
-
-
 if(isset($postData)){
    
    
@@ -45,10 +42,19 @@ if(isset($postData)){
 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
 
 	if($bResponse){
-		$response = 'all good';
+
+		$response = array(
+			'status' => 'success',
+			'data' => $postData
+		);
 	}else{
-		$response = 'all failed';
+		$response = array(
+			'status' => 'failed',
+			'data' => $postData
+		);
 	}
+
+	echo json_encode($response);
 }
 
 
@@ -77,8 +83,7 @@ function formatName($data){
    	$type = "";
    }
 
-  // $date_data = explode("/", $data->date_due);
-   $html =  $type . '-' . $data->client_name . ' (' . $data->bu. ')' . ' - ' . $data->date_due;
+   $html =  $type . ' - ' . $data->client_name . ' (' . $data->bu. ')' . ' - ' . substr($data->date_due, 0, -5);
 
    return $html;
 
@@ -109,12 +114,6 @@ function formatBody($data){
 
    return $html;
 }
-
-
-//echo json_encode($response);
-
-echo json_encode($postData);
-
 /*
 straightarrow-tech.com:2082	straigy4	P@ssw0rd12345
 git pull https://github.com/roeldingle/rnl-api.git master
