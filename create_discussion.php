@@ -101,13 +101,13 @@ function formatBody($data){
    $html .= '<br /><br />';
    $html .= '<strong>Task Description: </strong>&nbsp;' . $data->task_type;
    $html .= '<br /><br />';
-   $html .= '<strong>Versions: </strong><br />' . $data->versions;
+   $html .= '<strong>Versions: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->versions);
    $html .= '<br /><br />';
    $html .= '<strong>File location: </strong><br />' . $data->file_loc;
    $html .= '<br /><br />';
    $html .= '<strong>Initial Due date: </strong>&nbsp;' . $data->date_due;
    $html .= '<br /><br />';
-   $html .= '<strong>Special Notes/Instructions: </strong>&nbsp;' . $data->req_notes;
+   $html .= '<strong>Special Notes/Instructions: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->req_notes);
    $html .= '<br /><br />';
    $html .= '<strong>RNL Staff: </strong>&nbsp;' . $data->rnl_staff;
    $html .= '<br /><br />';
