@@ -89,23 +89,23 @@ function formatBody($data){
    
    $html = '';
    $html .= '<strong>Client name: </strong>&nbsp;' . $data->client_name;
-   $html .= '<br />';
+   $html .= '<br /><br />';
    $html .= '<strong>Date Requested/Filed: </strong>&nbsp;' . $data->date_req;
-   $html .= '<br />';
+   $html .= '<br /><br />';
    $html .= '<strong>Business/Task type: </strong>&nbsp;' . $data->bu;
-   $html .= '<br />';
+   $html .= '<br /><br />';
    $html .= '<strong>Task Description: </strong>&nbsp;' . $data->task_type;
-   $html .= '<br />';
+   $html .= '<br /><br />';
    $html .= '<strong>Versions: </strong><br />' . $data->versions;
-   $html .= '<br />';
+   $html .= '<br /><br />';
    $html .= '<strong>File location: </strong><br />' . $data->file_loc;
-   $html .= '<br />';
+   $html .= '<br /><br />';
    $html .= '<strong>Initial Due date: </strong>&nbsp;' . $data->date_due;
-   $html .= '<br />';
+   $html .= '<br /><br />';
    $html .= '<strong>Special Notes/Instructions: </strong>&nbsp;' . $data->req_notes;
-   $html .= '<br />';
+   $html .= '<br /><br />';
    $html .= '<strong>RNL Staff: </strong>&nbsp;' . $data->rnl_staff;
-   $html .= '<br />';
+   $html .= '<br /><br />';
 
    return $html;
 }
