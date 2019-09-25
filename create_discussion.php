@@ -95,24 +95,38 @@ function formatBody($data){
    $html = '';
    $html .= '<strong>Client name: </strong>&nbsp;' . $data->client_name;
    $html .= '<br /><br />';
+
    $html .= '<strong>Date Requested/Filed: </strong>&nbsp;' . $data->date_req;
    $html .= '<br /><br />';
+
    $html .= '<strong>Business/Task type: </strong>&nbsp;' . $data->bu;
    $html .= '<br /><br />';
+
    $html .= '<strong>Task Description: </strong>&nbsp;' . $data->task_type;
    $html .= '<br /><br />';
+
    $html .= '<strong>Versions: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->versions);
    $html .= '<br /><br />';
+
    $html .= '<strong>File location: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->file_loc);
    $html .= '<br /><br />';
+
    $html .= '<strong>Initial Due date: </strong>&nbsp;' . $data->date_due;
    $html .= '<br /><br />';
+
    $html .= '<strong>Special Notes/Instructions: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->req_notes);
    $html .= '<br /><br />';
+
    $html .= '<strong>RNL Staff: </strong>&nbsp;' . $data->rnl_staff;
    $html .= '<br /><br />';
 
-   $html .= 'This discussion was created by  @Angeline Rivera Guenther,';
+   $html .= '<strong>Gen Notes: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->gen_notes);
+   $html .= '<br /><br />';
+
+
+   $html .= 'This task request submitted via RNL-SA automation tool';
+   $html .= '<br /><br />';
+   $html .= 'Thank you';
 
    return $html;
 }
