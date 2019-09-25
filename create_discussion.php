@@ -120,7 +120,10 @@ function formatBody($data){
    $html .= '<strong>RNL Staff: </strong>&nbsp;' . $data->rnl_staff;
    $html .= '<br /><br />';
 
-   $html .= '<strong>Gen Notes: </strong><br />' . ($data->gen_notes === "") 'N/A' ? : str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->gen_notes);
+   if($data->gen_notes != ""){
+      $html .= '<strong>Gen Notes: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->gen_notes);
+   }
+   
    $html .= '<br /><br />';
 
 
