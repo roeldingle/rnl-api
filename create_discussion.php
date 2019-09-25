@@ -127,7 +127,7 @@ function formatBody($data){
    $html .= '<br /><br />';
 
 
-   $html .= '<strong>Notes: </strong>&nbsp;<em>This task request submitted via RNL-SA automation tool</em>';
+   $html .= '<strong>***</strong>&nbsp;<em>This task request submitted via RNL-SA automation tool</em><strong>***</strong>';
    $html .= '<br /><br />';
    $html .= 'Thank you';
 
