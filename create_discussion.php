@@ -109,7 +109,7 @@ function formatBody($data){
    $html .= '<strong>Task Description: </strong>&nbsp;' . $data->task_type;
    $html .= '<br /><br />';
 
-   $html .= '<strong>Versions: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->versions);
+   $html .= '<strong>Versions: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n",","),"<br/>",$data->versions);
    $html .= '<br /><br />';
 
    $html .= '<strong>File location: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->file_loc);
