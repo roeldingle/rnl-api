@@ -30,7 +30,6 @@ $client = $oMain->createClientInstance($token);
 
 if(isset($postData)){
    
-   
    $formatedName =  formatName($postData);
    $formatedBody = formatBody($postData);
 
@@ -41,20 +40,20 @@ if(isset($postData)){
 
 	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
 
-	if($bResponse){
+	// if($bResponse){
 
-		$response = array(
-			'status' => 'success',
-			'data' => $postData
-		);
-	}else{
-		$response = array(
-			'status' => 'failed',
-			'data' => $postData
-		);
-	}
+	// 	$response = array(
+	// 		'status' => 'success',
+	// 		'data' => $postData
+	// 	);
+	// }else{
+	// 	$response = array(
+	// 		'status' => 'failed',
+	// 		'data' => $postData
+	// 	);
+	// }
 
-	echo json_encode($response);
+	// echo json_encode($response);
 }
 
 
@@ -77,7 +76,7 @@ function formatName($data){
 
    	case "E-card":
    	$type = "EC";
-	   break;
+	break;
 	   
 	case "Microsite":
    	$type = "MI";
