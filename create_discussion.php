@@ -38,7 +38,9 @@ if(isset($postData)){
 		'body' => $formatedBody,
 	);
 
-	$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
+	$oMain->createProjectData($client, $project_id, 'discussions', $payload);
+
+	//$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
 
 	// if($bResponse){
 
