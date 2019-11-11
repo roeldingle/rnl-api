@@ -41,7 +41,8 @@ class Main{
 
 	function createProjectData($client, $project_id, $type, $data){
 		try {
-		    $client->post('projects/'.$project_id.'/'.$type, $data);
+			$client->post('projects/'.$project_id.'/'.$type, $data);
+			exit;
 		} catch(AppException $e) {
 		    print $e->getMessage() . '<br><br>';
 		    // var_dump($e->getServerResponse()); (need more info?)
