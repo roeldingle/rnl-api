@@ -8,8 +8,8 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 require_once('main.php');
 
-$_POST = file_get_contents('php://input');
-$postData = json_decode($_POST);
+// $_POST = file_get_contents('php://input');
+// $postData = json_decode($_POST);
 
 $account_id = 176953;
 $project_id = 1878;
@@ -28,10 +28,10 @@ $token = $oMain->issueToken($authenticator, $account_id);
 $client = $oMain->createClientInstance($token);
 
 
-if(isset($postData)){
+//if(isset($postData)){
    
-   $formatedName =  formatName($postData);
-   $formatedBody = formatBody($postData);
+   $formatedName = 'test'; //formatName($postData);
+   $formatedBody = 'test'; //formatBody($postData);
 
 	$payload = array(
 		'name' => $formatedName,
@@ -56,7 +56,7 @@ if(isset($postData)){
 	// }
 
 	// echo json_encode($response);
-}
+//}
 
 
 
@@ -142,3 +142,4 @@ function formatBody($data){
 straightarrow-tech.com:2082	straigy4	P@ssw0rd12345
 git pull https://github.com/roeldingle/rnl-api.git master
 */
+
