@@ -34,7 +34,7 @@ if(isset($postData)){
    $formatedBody = formatBody($postData);
 
 	$payload = array(
-		'name' => "TEST" . $formatedName,
+		'name' => $formatedName,
 		'body' => $formatedBody,
 	);
 
