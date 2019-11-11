@@ -28,7 +28,7 @@ $token = $oMain->issueToken($authenticator, $account_id);
 $client = $oMain->createClientInstance($token);
 
 
-//if(isset($postData)){
+if(isset($postData)){
    
    $formatedName =  formatName($postData);
    $formatedBody = formatBody($postData);
@@ -56,7 +56,7 @@ $client = $oMain->createClientInstance($token);
 	// }
 
 	// echo json_encode($response);
-// }
+}
 
 
 
