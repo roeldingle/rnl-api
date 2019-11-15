@@ -38,7 +38,11 @@ $client = $oMain->createClientInstance($token);
 		'body' => $formatedBody,
 	);
 
-	$oMain->createProjectData($client, $project_id, 'discussions', $payload);
+	$bResponse = $client->get('projects/'.$project_id.'/discussions')->getJson();
+
+	var_dump($bResponse);
+
+
 
 	//$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
 

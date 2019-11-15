@@ -36,7 +36,7 @@ class Main{
 	}
 
 	function getProjectData($client, $project_id, $type){
-		return $client->get('projects/'.$id.'/'.$type.'')->getJson();
+		return $client->get('projects/'.$project_id.'/'.$type)->getJson();
 	}
 
 	function createProjectData($client, $project_id, $type, $data){
@@ -48,6 +48,16 @@ class Main{
 		    // var_dump($e->getServerResponse()); (need more info?)
 		}
 	}
+
+	// function getProjectData($client, $project_id, $type){
+	// 	try {
+	// 		$client->get('projects/'.$project_id.'/'.$type);
+	// 		exit;
+	// 	} catch(AppException $e) {
+	// 	    print $e->getMessage() . '<br><br>';
+	// 	    // var_dump($e->getServerResponse()); (need more info?)
+	// 	}
+	// }
 
 
 }

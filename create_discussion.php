@@ -78,11 +78,15 @@ function formatName($data){
 
    	case "E-card":
    	$type = "EC";
-	break;
+	     break;
 	   
-	case "Microsite":
+	  case "Microsite":
    	$type = "MI";
    	break;
+
+      case "Banner":
+      $type = "BA";
+      break;
 
    	default:
    	$type = "";
