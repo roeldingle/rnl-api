@@ -11,6 +11,17 @@ require_once('main.php');
 $_POST = file_get_contents('php://input');
 $postData = json_decode($_POST);
 
+// $postData = (object) [];
+// $postData->task_type = 'Combine';
+// $postData->client_name = 'CombineCombine';
+// $postData->date_due = '01/08/2020';
+// $postData->bu = 'FM';
+// $postData->versions = 'dff';
+// $postData->file_loc = 'dff';
+// $postData->rnl_staff = 'Angie';
+// $postData->gen_notes = 'this is a test';
+
+
 $account_id = 176953;
 $project_id = 3671; //SA-RNL Creatives 2020 - activecollab page
 
