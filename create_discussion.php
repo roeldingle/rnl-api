@@ -51,12 +51,6 @@ if(isset($postData)){
 
 	$oMain->createProjectData($client, $project_id, 'discussions', $payload);
 
-   $to_email_address = 'rmdingle@straightarrow.com.ph';
-   $subject = $formatedName;
-   $message = 'test from task request form';
-
-   mail($to_email_address,$subject,$message);
-
 	//$bResponse = $oMain->createProjectData($client, $project_id, 'discussions', $payload);
 
 	// if($bResponse){
