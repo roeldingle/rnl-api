@@ -40,5 +40,5 @@ if(!$mail->Send()) {
 
 
 
-echo "tester check smtp 3";
+echo "tester gmail tester send email";
 
