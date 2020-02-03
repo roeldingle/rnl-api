@@ -9,17 +9,17 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once('main.php');
 
 $_POST = file_get_contents('php://input');
-$postData = json_decode($_POST);
+//$postData = json_decode($_POST);
 
-// $postData = (object) [];
-// $postData->task_type = 'Combine';
-// $postData->client_name = 'CombineCombine';
-// $postData->date_due = '01/08/2020';
-// $postData->bu = 'FM';
-// $postData->versions = 'dff';
-// $postData->file_loc = 'dff';
-// $postData->rnl_staff = 'Angie';
-// $postData->gen_notes = 'this is a test';
+$postData = (object) [];
+$postData->task_type = 'Combine';
+$postData->client_name = 'CombineCombine';
+$postData->date_due = '01/08/2020';
+$postData->bu = 'FM';
+$postData->file_name = 'dff';
+$postData->file_loc = 'dff';
+$postData->rnl_staff = 'Angie';
+$postData->gen_notes = 'this is a test';
 
 
 $account_id = 176953;
