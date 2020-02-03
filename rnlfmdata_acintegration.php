@@ -12,7 +12,7 @@ $_POST = file_get_contents('php://input');
 //$postData = json_decode($_POST);
 
 $postData = (object) [];
-$postData->task_type = 'Combine';
+$postData->task_type = 'SaaS';
 $postData->client_name = 'CombineCombine';
 $postData->date_due = '01/08/2020';
 $postData->bu = 'FM';
