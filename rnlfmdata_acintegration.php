@@ -23,7 +23,7 @@ $postData = json_decode($_POST);
 
 
 $account_id = 176953;
-$project_id = 3671; //SA-RNL Creatives 2020 - activecollab page
+$project_id = 149; //RNL FM CSpec Support - activecollab page
 
 $data = array(
 	'company' => 'Straightarrow Corporation',
@@ -83,7 +83,7 @@ function formatName($data){
    	$type = "";
    }
 
-   $html =  $type . ' - ' . $data->client_name . ' (' . $data->bu. ')' . ' - ' . substr($data->date_due, 0, -5);
+   $html =  'FM-' . $data->bu . '-' . $type . '-' . $data->client_name .  '-' . str_replace('/','',substr($data->date_due, 0, -5));
 
    return $html;
 
@@ -118,12 +118,6 @@ function formatBody($data){
    $html .= '<br /><br />';
 
    $html .= '<strong>RNL Staff: </strong>&nbsp;' . $data->rnl_staff;
-   $html .= '<br /><br />';
-
-   if($data->gen_notes != ""){
-      $html .= '<strong>Gen Notes: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->gen_notes);
-   }
-   
    $html .= '<br /><br />';
 
 
