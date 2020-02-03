@@ -75,29 +75,9 @@ if(isset($postData)){
 function formatName($data){
    
    switch($data->task_type){
-   	case "Combine":
-   	$type = "CM";
+   	case "SaaS":
+   	$type = "SaaS";
    	break;
-
-   	case "Load":
-   	$type = "LO";
-   	break;
-
-   	case "Code":
-   	$type = "CO";
-   	break;
-
-   	case "E-card":
-   	$type = "EC";
-	     break;
-	   
-	  case "Microsite":
-   	$type = "MI";
-   	break;
-
-      case "Banner":
-      $type = "BA";
-      break;
 
    	default:
    	$type = "";
@@ -125,7 +105,7 @@ function formatBody($data){
    $html .= '<strong>Task Description: </strong>&nbsp;' . $data->task_type;
    $html .= '<br /><br />';
 
-   $html .= '<strong>Versions: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n",","),"<br/>",$data->versions);
+   $html .= '<strong>File name: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n",","),"<br/>",$data->file_name);
    $html .= '<br /><br />';
 
    $html .= '<strong>File location: </strong><br />' . str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$data->file_loc);
