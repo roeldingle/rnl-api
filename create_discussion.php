@@ -95,8 +95,8 @@ function formatName($data){
    	$type = "MI";
    	break;
 
-      case "Banner":
-      $type = "BA";
+      case "HTML5 Ads":
+      $type = "HA";
       break;
 
    	default:
