@@ -86,7 +86,7 @@ function formatName($data){
    $arr_due_date = explode('/',$data->date_due);
    $ending_date = sprintf("%02d", $arr_due_date[0]).sprintf("%02d", $arr_due_date[1]);
 
-   $html =  'FM-' . $data->bu . '-' . $type . '-' . $data->client_name .  '-' . $ending_date;
+   $html =  'FM-' . $data->bu . '-' . $data->task_type . '-' . $data->client_name .  '-' . $ending_date;
 
    return $html;
 
